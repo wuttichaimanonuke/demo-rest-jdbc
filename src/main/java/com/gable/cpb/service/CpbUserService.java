@@ -32,6 +32,20 @@ public class CpbUserService implements ICpbUserService {
 		}
 		return result;
 	}
+	
+	@Override
+	public List<Long> getAllIdCpbUserId() throws Exception {
+		log.info("(SERVICE) Service getAllIdCpbUsers begin.");
+		List<Long> result = new ArrayList<Long>();
+		try {
+			result = cpbUserDAO.getAllIdCpbUsers();
+			log.info("(SUCCESS) Method getAllIdCpbUsers call cpbUserDAO.getAllIdCpbUsers() success.");
+		} catch (Exception e) {
+			log.error("(ERROR) Method getAllIdCpbUsers error. : "+e);
+			throw new Exception();
+		}
+		return result;
+	}
 
 	@Override
 	public List<Long> getAllCpbUserId() throws Exception {

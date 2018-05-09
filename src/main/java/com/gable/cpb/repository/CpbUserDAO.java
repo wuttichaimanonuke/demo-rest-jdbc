@@ -1,5 +1,7 @@
 package com.gable.cpb.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +44,29 @@ public class CpbUserDAO implements ICpbUserDAO {
 			log.info("(SUCCESS) Method getAllCpbUsers access database success.");
 		} catch (Exception e) {
 			log.error("(ERROR) Method getAllCpbUsers RowMapper or JDBCTemplate error. : "+e);
+			throw new Exception();
+		}
+		return result;
+	}
+	
+	@Override
+	public List<Long> getAllIdCpbUsers() throws Exception {
+		String sql = "SELECT USER_ID FROM "+cmesSchema+"CPB_USER";
+		class IdCpbUserRowMapper implements RowMapper<Long> {
+
+			@Override
+			public Long mapRow(ResultSet arg0, int arg1) throws SQLException {
+				return arg0.getLong("USER_ID");
+			}
+			
+		}
+		RowMapper<Long> rowMapper = new IdCpbUserRowMapper();
+		List<Long> result = new ArrayList<Long>();
+		try {
+			result = jdbcTemplate.query(sql, rowMapper);
+			log.info("(SUCCESS) Method getAllIdCpbUsers access database success.");
+		} catch (Exception e) {
+			log.error("(ERROR) Method getAllIdCpbUsers RowMapper or JDBCTemplate error. : "+e);
 			throw new Exception();
 		}
 		return result;

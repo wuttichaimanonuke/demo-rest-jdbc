@@ -7,6 +7,7 @@ import com.gable.cpb.entity.CpbUser;
 public interface ICpbUserService {
 	
 	List<CpbUser> getAllCpbUsers() throws Exception;
+	List<Long> getAllIdCpbUserId() throws Exception;
 	List<Long> getAllCpbUserId() throws Exception;
 	CpbUser getCpbUserByUserId(long userId) throws Exception;
 	Boolean userIdExists(long userId) throws Exception;

@@ -53,11 +53,11 @@ public class CpbUserController {
 	
 	@RequestMapping(value = "allUserId", method = RequestMethod.GET)
 	public ResponseEntity<List<Long>> getAllCpbUserId() {
-		log.info("(GET) mapping to getAllCpbUserId : Begin.");
+		log.info("(GET) mapping to getAllIdCpbUserId : Begin.");
 		List<Long> result = new ArrayList<Long>();
 		HttpHeaders responseHeaders = new HttpHeaders();
 		try {
-			result = cpbUserService.getAllCpbUserId();
+			result = cpbUserService.getAllIdCpbUserId();
 			log.info("(SUCCESS) Controller cpb_user/allUserId call success.");
 			responseHeaders.add("HeaderResponse", "Web Service OK.");
 			return new ResponseEntity<List<Long>>(result, responseHeaders, HttpStatus.OK);
