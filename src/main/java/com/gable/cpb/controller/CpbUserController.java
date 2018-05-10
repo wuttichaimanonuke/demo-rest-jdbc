@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,6 +52,24 @@ public class CpbUserController {
 		}
 	}
 	
+	@RequestMapping(value = "/user/method/post", method = RequestMethod.POST)
+	public ResponseEntity<?> getAllCpbUesrsPost() {
+		log.info("(POST) mapping to getAllCpbUesrsPost : Begin.");
+		log.info("@RequestBody : Not RequestBody.");
+		List<CpbUser> result = new ArrayList<CpbUser>();
+		HttpHeaders responseHeaders = new HttpHeaders();
+		try {
+			result = cpbUserService.getAllCpbUsers();
+			log.info("(SUCCESS) Controller cpb_user/user/method/post call success.");
+			responseHeaders.add("HeaderResponse", "Web Service OK.");
+			return new ResponseEntity<List<CpbUser>>(result, responseHeaders, HttpStatus.OK);
+		} catch (Exception e) {
+			log.error("(ERROR) Controller cpb_user/user/method/post error. : "+e);
+			responseHeaders.add("HeaderResponse", "Web Service ERROR.");
+			return new ResponseEntity<List<CpbUser>>(result, responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@RequestMapping(value = "allUserId", method = RequestMethod.GET)
 	public ResponseEntity<List<Long>> getAllCpbUserId() {
 		log.info("(GET) mapping to getAllIdCpbUserId : Begin.");
@@ -71,6 +90,7 @@ public class CpbUserController {
 	@GetMapping("userByUserId/{userId}")
 	public ResponseEntity<CpbUser> getCpbUserByUserId(@PathVariable("userId") long userId) {
 		log.info("(GET) mapping to getCpbUserByUserId : Begin.");
+		log.info("(GET) Params : userId = {} ",userId);
 		CpbUser cpbUser = new CpbUser();
 		HttpHeaders responseHeaders = new HttpHeaders();
 		try {
@@ -80,6 +100,24 @@ public class CpbUserController {
 			return new ResponseEntity<CpbUser>(cpbUser, responseHeaders, HttpStatus.OK);
 		} catch (Exception e) {
 			log.error("(ERROR) Controller cpb_user/userByUserId error. : "+e);
+			responseHeaders.add("HeaderResponse", "Web Service ERROR.");
+			return new ResponseEntity<CpbUser>(cpbUser, responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(value = "/postUserByUserId/method/post", method = RequestMethod.POST)
+	public ResponseEntity<?> getCpbUserByUserIdPost(@RequestBody CpbUser user) {
+		log.info("(POST) mapping to getCpbUserByUserIdPost : Begin.");
+		log.info("@RequestBody : userId = {}",user.getUserId());
+		CpbUser cpbUser = new CpbUser();
+		HttpHeaders responseHeaders = new HttpHeaders();
+		try {
+			cpbUser = cpbUserService.getCpbUserByUserId(user.getUserId());
+			log.info("(SUCCESS) Controller cpb_user/postUserByUserId/method/post call success.");
+			responseHeaders.add("HeaderResponse", "Web Service OK.");
+			return new ResponseEntity<CpbUser>(cpbUser, responseHeaders, HttpStatus.OK);
+		} catch (Exception e) {
+			log.error("(ERROR) Controller cpb_user/postUserByUserId/method/post error. : "+e);
 			responseHeaders.add("HeaderResponse", "Web Service ERROR.");
 			return new ResponseEntity<CpbUser>(cpbUser, responseHeaders, HttpStatus.INTERNAL_SERVER_ERROR);
 		}

@@ -2,11 +2,13 @@ package com.gable.cpb.entity;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = false) 			//Ignore unknown properties.
+@JsonIgnoreProperties(ignoreUnknown = false) 			//Ignore unknown properties. true=ignore , false=not ignore.
 @JsonInclude(JsonInclude.Include.NON_NULL)				//Properties is null, it not include to data model.
 //@JsonInclude(JsonInclude.Include.NON_EMPTY)	
 //@JsonIgnoreProperties({"properties1", "properties2"})	//Ignore multi properties.
@@ -52,6 +54,11 @@ public class CpbUser {
 		this.updateDateTime = updateDateTime;
 	}
 
+	@JsonCreator
+	public CpbUser(@JsonProperty("userId") long userId) {
+		this.userId = userId;
+	}
+	
 	public long getUserId() {
 		return userId;
 	}
