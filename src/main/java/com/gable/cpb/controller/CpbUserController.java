@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gable.cpb.entity.CpbRole;
-import com.gable.cpb.entity.CpbUser;
-import com.gable.cpb.entity.ResultBoolean;
+import com.gable.cpb.entity.cpb.CpbRole;
+import com.gable.cpb.entity.cpb.CpbUser;
+import com.gable.cpb.entity.test_entity.ResultBoolean;
 import com.gable.cpb.service.ICpbRoleService;
 import com.gable.cpb.service.ICpbUserService;
 

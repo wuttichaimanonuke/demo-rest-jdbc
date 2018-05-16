@@ -2,7 +2,7 @@ package com.gable.cpb.service;
 
 import java.util.List;
 
-import com.gable.cpb.entity.CpbUser;
+import com.gable.cpb.entity.cpb.CpbUser;
 
 public interface ICpbUserService {
 	

@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gable.cpb.entity.CpbRole;
-import com.gable.cpb.entity.CpbRoleJoinCpbRoleType;
-import com.gable.cpb.repository.ICpbRoleDAO;
+import com.gable.cpb.entity.cpb.CpbRole;
+import com.gable.cpb.entity.cpb.CpbRoleJoinCpbRoleType;
+import com.gable.cpb.repository.cpb.ICpbRoleDAO;
 
 @Service
 public class CpbRoleService implements ICpbRoleService {

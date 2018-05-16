@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gable.cpb.entity.CpbRoleJoinCpbRoleType;
+import com.gable.cpb.entity.cpb.CpbRoleJoinCpbRoleType;
 import com.gable.cpb.service.ICpbRoleService;
 
 @RestController
