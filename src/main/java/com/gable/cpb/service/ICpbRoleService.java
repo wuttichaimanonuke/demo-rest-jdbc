@@ -2,8 +2,8 @@ package com.gable.cpb.service;
 
 import java.util.List;
 
-import com.gable.cpb.entity.CpbRole;
-import com.gable.cpb.entity.CpbRoleJoinCpbRoleType;
+import com.gable.cpb.entity.cpb.CpbRole;
+import com.gable.cpb.entity.cpb.CpbRoleJoinCpbRoleType;
 
 public interface ICpbRoleService {
 

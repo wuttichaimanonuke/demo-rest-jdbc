@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gable.cpb.entity.ResultPlusTwoNumber;
-import com.gable.cpb.entity.ResultSumNumber;
-import com.gable.cpb.entity.TwoNumber;
+import com.gable.cpb.entity.test_entity.ResultPlusTwoNumber;
+import com.gable.cpb.entity.test_entity.ResultSumNumber;
+import com.gable.cpb.entity.test_entity.TwoNumber;
 import com.gable.cpb.service.IMathBasicService;
 
 @RestController

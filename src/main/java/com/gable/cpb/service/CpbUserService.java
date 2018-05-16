@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gable.cpb.entity.CpbUser;
-import com.gable.cpb.repository.ICpbUserDAO;
+import com.gable.cpb.entity.cpb.CpbUser;
+import com.gable.cpb.repository.cpb.ICpbUserDAO;
 
 @Service
 public class CpbUserService implements ICpbUserService {

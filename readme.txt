@@ -1,7 +1,7 @@
 cpb-backend
 01
 -----------------------------------
-Branch : cpb-backend.
-Description : Merge cpb-backend-imp Brach. Add all Entity, RowMapper, Interface DAO, DAO Class.
-Date Update : 16/05/2018 15:48
+Branch : cpb-backend-imp.
+Description : Edit Class Name And restructure.
+Date Update : 16/05/2018 17:00
 -----------------------------------
